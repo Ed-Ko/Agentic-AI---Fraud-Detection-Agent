@@ -14,6 +14,7 @@ capstone-proposal/
 ├── configs/config.yaml        # Shared configuration
 ├── data/
 │   ├── raw/                   # Original Elliptic CSV files
+│   ├── sample/                # 100-row synthetic development fixture
 │   └── processed/             # Derived data
 ├── docs/
 │   ├── dataset.md             # Schema, counts, leakage, and temporal split
@@ -44,6 +45,18 @@ The loader validates the published structure: 203,769 transactions, 234,355
 directed edges, and 166 node attributes. See
 [`capstone-proposal/docs/dataset.md`](capstone-proposal/docs/dataset.md) for
 the file relationships, label counts, and leakage risks.
+
+To exercise the pipeline without the full dataset, generate the deterministic
+fixture and point the scripts at it:
+
+```bash
+cd capstone-proposal
+python3 scripts/create_sample_dataset.py
+python3 scripts/check_environment.py --data-dir data/sample
+python3 scripts/build_models.py --data-dir data/sample --output /tmp/sample-results.json
+```
+
+The fixture is synthetic and is not suitable for research conclusions.
 
 ## Recommended workflow
 

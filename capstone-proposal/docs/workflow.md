@@ -16,6 +16,11 @@ and testing. It never trains on the test period.
 4. Run `make check`. The preflight is read-only: it checks packages and files,
    and names every missing prerequisite.
 
+For development without the full dataset, run
+`python3 scripts/create_sample_dataset.py`; it writes a deterministic
+100-row synthetic fixture to `data/sample/`. Pass `--data-dir data/sample` to
+the preflight or build scripts. This fixture is only for pipeline testing.
+
 ## 2. Build models once
 
 Run `make build`. It:

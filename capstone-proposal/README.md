@@ -23,7 +23,7 @@ capstone-proposal/
 ├── requirements.txt
 ├── Makefile
 ├── configs/config.yaml
-├── data/{raw,processed}/
+├── data/{raw,sample,processed}/
 ├── docs/{dataset.md,workflow.md}
 ├── src/{data,baselines,evaluation,utils}/
 ├── experiments/       # Research notebooks
@@ -44,6 +44,19 @@ elliptic_txs_edgelist.csv
 The loader expects 203,769 transactions, 234,355 directed edges, and 167
 columns in the headerless feature file. See [docs/dataset.md](docs/dataset.md)
 for the complete schema, published counts, and leakage considerations.
+
+For a lightweight local fixture, create 100-row files in `data/sample/`:
+
+```bash
+python3 scripts/create_sample_dataset.py
+python3 scripts/check_environment.py --data-dir data/sample
+```
+
+The fixture uses the same three filenames and 167-column feature schema, but
+contains synthetic values and must not be used as research data.
+
+The full downloaded dataset belongs in `data/raw/`; the small fixture belongs
+in `data/sample/` and leaves the research data untouched.
 
 ## Installation
 
