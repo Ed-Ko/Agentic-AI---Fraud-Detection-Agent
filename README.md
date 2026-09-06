@@ -3,6 +3,24 @@
 This repository contains a research-oriented capstone project for financial
 fraud investigation using the Elliptic Bitcoin transaction dataset.
 
+## Quick start after cloning
+
+The repository includes a small synthetic fixture, so the complete pipeline can
+be exercised immediately:
+
+```bash
+git clone git@github.com:Ed-Ko/Agentic-AI---Fraud-Detection-Agent.git
+cd Agentic-AI---Fraud-Detection-Agent/capstone-proposal
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+make DATA_DIR=data/sample all
+```
+
+This runs the checks, both baselines, and tests, and writes sample metrics to
+`results/metrics/baseline_results.json`. The sample is synthetic; use the full
+dataset for research results.
+
 ## Project structure
 
 ```text
@@ -67,6 +85,12 @@ python3 -m pip install -r requirements.txt
 make check
 make build
 make test
+```
+
+The default `DATA_DIR` is `data/raw`. To use another compatible dataset:
+
+```bash
+make DATA_DIR=/path/to/dataset all
 ```
 
 Or run the complete sequence with:

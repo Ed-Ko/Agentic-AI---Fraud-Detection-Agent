@@ -4,6 +4,22 @@ This project investigates illicit Bitcoin transactions using the public Elliptic
 transaction graph. It provides a validated data pipeline, two baseline models,
 temporal evaluation, and reproducible tests.
 
+## Quick start
+
+After cloning, run the included synthetic 100-row fixture:
+
+```bash
+git clone git@github.com:Ed-Ko/Agentic-AI---Fraud-Detection-Agent.git
+cd Agentic-AI---Fraud-Detection-Agent/capstone-proposal
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+make DATA_DIR=data/sample all
+```
+
+For research, place the three full Elliptic CSVs in `data/raw/` and run
+`make all` instead. The sample fixture is for pipeline validation only.
+
 ## Current implementation
 
 - Schema validation and dataset summaries
@@ -78,6 +94,9 @@ make build   # Train and evaluate both baselines once
 make test    # Run automated tests
 make all     # Run check, build, and test in order
 ```
+
+`DATA_DIR` defaults to `data/raw`; override it for another compatible dataset,
+for example `make DATA_DIR=data/sample all`.
 
 The build uses a forward temporal split: train steps 1–34, validation steps
 35–39, and test steps 40–49. Preprocessing and thresholds never use test labels.

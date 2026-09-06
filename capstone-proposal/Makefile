@@ -1,12 +1,16 @@
 .PHONY: check build test all
 
+PYTHON ?= python3
+DATA_DIR ?= data/raw
+RESULTS_FILE ?= results/metrics/baseline_results.json
+
 check:
-	python3 scripts/check_environment.py
+	$(PYTHON) scripts/check_environment.py --data-dir $(DATA_DIR)
 
 build:
-	python3 scripts/build_models.py
+	$(PYTHON) scripts/build_models.py --data-dir $(DATA_DIR) --output $(RESULTS_FILE)
 
 test:
-	python3 scripts/run_tests.py
+	$(PYTHON) scripts/run_tests.py
 
 all: check build test
