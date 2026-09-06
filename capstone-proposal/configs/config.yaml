@@ -1,0 +1,6 @@
+# Central project configuration. Replace these placeholders for the capstone.
+data:
+  raw_dir: data/raw
+  processed_dir: data/processed
+results_dir: results
+random_seed: 42

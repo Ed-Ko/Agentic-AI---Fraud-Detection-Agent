@@ -1,0 +1,22 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.python-packages/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Keep directory structure but exclude generated data and outputs
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+results/metrics/*
+!results/metrics/.gitkeep
+results/figures/*
+!results/figures/.gitkeep
+results/predictions/*
+!results/predictions/.gitkeep
