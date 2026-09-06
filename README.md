@@ -1,6 +1,8 @@
 Capstone proposal guideline
 
 File Structure
+
+```text
 capstone-proposal/
 │
 ├── README.md
@@ -41,3 +43,4 @@ capstone-proposal/
     ├── metrics/
     ├── figures/
     └── predictions/
+```
